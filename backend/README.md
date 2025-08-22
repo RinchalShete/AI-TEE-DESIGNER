@@ -2,6 +2,8 @@
 
 This is the backend service for the AI Tee Designer platform. It handles user authentication, profile management, design generation using Stable Diffusion with LoRA fine-tuning, and image storage in the cloud. The backend is built with FastAPI, Supabase, and integrates with a containerized Stable Diffusion WebUI for AI-based T-shirt designs.
 
+---
+
 ## Table of Contents
 
 1. Features
@@ -10,6 +12,8 @@ This is the backend service for the AI Tee Designer platform. It handles user au
 4. Setup and Installation
 5. Environment Variables
 6. API Endpoints
+
+---
 
 ### Features
 
@@ -21,6 +25,8 @@ This is the backend service for the AI Tee Designer platform. It handles user au
 - Upload generated designs to Cloudinary and store references in Supabase
 - Dockerized setup for easy deployment
 
+---
+
 ### Tech Stack
 
 - Backend Framework: FastAPI
@@ -31,12 +37,16 @@ This is the backend service for the AI Tee Designer platform. It handles user au
 - Image Evaluation: OpenAI CLIP
 - Email Service: SMTP (for OTP)
 
+---
+
 ### Requirements
 
 - CPU with 6GB RAM
 - Docker and NVIDIA Container Toolkit installed on your system.
 - 'stable-diffusion-webui' folder downloaded from Google Drive and placed in the project folder:  https://drive.google.com/drive/folders/1wV1BkFN6GmWByh1-5_-Elagr9cEbWwD3?usp=sharing
 - Note: This setup can only be used locally. If you want to make it production-ready, host A1111 with SD v1.5 + LoRA on a GPU server.
+
+---
 
 ### Setup & Installation
 
@@ -52,6 +62,8 @@ docker-compose up
 ```
 4. Backend runs at: http://localhost:8000
 5. Stable Diffusion WebUI ( A1111 ) runs at: http://localhost:7860
+
+---
 
 ### Environment Variables
 | Variable             | Description                        |
@@ -69,7 +81,11 @@ docker-compose up
 | SMTP_PASSWORD         | Email password                     |
 | BLANK_URL             | Placeholder image URL              |
 
+---
+
 ### API Endpoints
+
+---
 
 #### Auth
 
@@ -78,6 +94,8 @@ docker-compose up
 | POST   | /auth/signup | Create a new user & auto-login   |
 | POST   | /auth/login  | Login and return JWT             |
 | GET    | /auth/me     | Get current logged-in user info  |
+
+---
 
 #### Profile
 
@@ -88,6 +106,8 @@ docker-compose up
 | POST   | /profile/forgot-password | Send OTP for password reset       |
 | POST   | /profile/verify-otp      | Verify OTP                        |
 | POST   | /profile/reset-password  | Reset password using verified OTP |
+
+---
 
 #### Designs
 
