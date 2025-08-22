@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+pillow
+python-dotenv
+cloudinary
+httpx
+python-multipart
+aiofiles
+supabase
+bcrypt
+pyjwt
+pydantic[email]
+openai-clip
+

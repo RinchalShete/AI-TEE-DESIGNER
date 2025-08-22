@@ -1,0 +1,26 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - a1111
+
+  a1111:
+    image: zefie/stable-diffusion-automatic1111:latest
+    container_name: a1111
+    environment:
+      - CLI_ARGS=--allow-code --enable-insecure-extension-access --api --disable-safe-unpickle --precision full --no-half --use-cpu all
+    ports:
+      - "7860:7860"
+    volumes:
+      - ./stable-diffusion-webui/models/Stable-Diffusion:/stable-diffusion-webui/models/Stable-diffusion
+      - ./stable-diffusion-webui/models/Lora:/stable-diffusion-webui/models/Lora   # <--- Added LoRA mount
+    stop_signal: SIGKILL
+    tty: true
