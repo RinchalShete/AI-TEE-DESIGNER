@@ -55,7 +55,7 @@ This is the backend service for the AI Tee Designer platform. It handles user au
 git clone https://github.com/RinchalShete/AI-TEE-DESIGNER.git
 cd AI-TEE-DESIGNER
 ```
-2. Set up .env ( Example env is given below )
+2. Set up .env in backend folder ( Example env is given below )
 3. Build and run containers
 ```bash
 docker-compose up 
